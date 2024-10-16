@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.App {
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+  margin-top: 100px;
+}
+.props-text_contain {
+  height: 200px;
+  width: 200px;
+  border: 2px solid rgb(14, 212, 136);
+  align-content: center;
+  background: black;
+}
+.props-text {
+  text-align: center;
+  font-size: 20px;
+  color: bisque;
+}
