@@ -8,6 +8,7 @@ function Product(props) {
         <h1 className="title_products_card">{props.title}</h1>
         <p className="description">{props.description}</p>
         <p className="price">${props.price}</p>
+        <p className="description">SIZE: {props.size}</p>
       </div>
     </Link>
   );

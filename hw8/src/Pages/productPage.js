@@ -6,6 +6,7 @@ import product1 from "../images/product1.svg";
 import product2 from "../images/product2.svg";
 import product3 from "../images/product3.svg";
 import Product from "../components/product";
+const price = 30;
 function ProductPage() {
   return (
     <div className="top">

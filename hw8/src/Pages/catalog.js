@@ -11,8 +11,119 @@ import slider_left from "../icons/slider_left.svg";
 import slider_right from "../icons/slider_right.svg";
 import Advantages from "../components/advantages";
 import Reviews from "../components/reviews";
+import { useState } from "react";
+import ProductFilter from "../components/ProductFilter";
+const products = [
+  {
+    img: product1,
+    title: "ELLERY X M'O CAPSULE",
+    description:
+      "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.",
+    price: "32.00",
+    size: "M",
+  },
+  {
+    img: product2,
+    title: "ELLERY X M'O CAPSULE",
+    description:
+      "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.",
+    price: "30.00",
+    size: "L",
+  },
+  {
+    img: product3,
+    title: "ELLERY X M'O CAPSULE",
+    description:
+      "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.",
+    price: "30.00",
+    size: "S",
+  },
+  {
+    img: product4,
+    title: "ELLERY X M'O CAPSULE",
+    description:
+      "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.",
+    price: "30.00",
+    size: "L",
+  },
+  {
+    img: product5,
+    title: "ELLERY X M'O CAPSULE",
+    description:
+      "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.",
+    price: "30.00",
+    size: "L",
+  },
+  {
+    img: product6,
+    title: "ELLERY X M'O CAPSULE",
+    description:
+      "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.",
+    price: "30.00",
+    size: "XS",
+  },
+  {
+    img: product1,
+    title: "ELLERY X M'O CAPSULE",
+    description:
+      "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.",
+    price: "30.00",
+    size: "L",
+  },
+  {
+    img: product2,
+    title: "ELLERY X M'O CAPSULE",
+    description:
+      "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.",
+    price: "30.00",
+    size: "XS",
+  },
+  {
+    img: product3,
+    title: "ELLERY X M'O CAPSULE",
+    description:
+      "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.",
+    price: "30.00",
+    size: "M",
+  },
+  {
+    img: product2,
+    title: "ELLERY X M'O CAPSULE",
+    description:
+      "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.",
+    price: "30.00",
+    size: "L",
+  },
+  {
+    img: product2,
+    title: "ELLERY X M'O CAPSULE",
+    description:
+      "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.",
+    price: "30.00",
+    size: "XS",
+  },
+  {
+    img: product2,
+    title: "ELLERY X M'O CAPSULE",
+    description:
+      "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.",
+    price: "30.00",
+    size: "M",
+  },
+];
 
 function Catalog() {
+  const [filteredSizes, setFilteredSizes] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState(products); // Инициализируем с полным списком товаров
+
+  const handleFilterChange = (sizes) => {
+    setFilteredSizes(sizes); // Установить состояния выбранных размеров
+    const filteredProducts = sizes.length
+      ? products.filter((product) => sizes.includes(product.size)) // Фильтр по размерам
+      : products; // Если размеры не выбраны, отображаем все товары
+    setFilteredProducts(filteredProducts); // Обновляем состояние отфильтрованных товаров
+  };
+
   return (
     <div className="top">
       <Header />
@@ -217,24 +328,10 @@ function Catalog() {
                 </svg>
               </summary>
               <div className="sort__box">
-                <div className="sort__check">
-                  <input id="sort__check1" type="checkbox" />
-                  <label for="sort__check1">XS</label>
-                </div>
-                <div className="sort__check">
-                  <input id="sort__check2" type="checkbox" />
-                  <label for="sort__check2">S</label>
-                </div>
-                <div className="sort__check">
-                  <input id="sort__check4" type="checkbox" />
-                  <label for="sort__check4">M</label>
-                </div>
-                <div className="sort__check">
-                  <input id="sort__check4" type="checkbox" />
-                  <label for="sort__check4">L</label>
-                </div>
+                <ProductFilter onFilterChange={handleFilterChange} />
               </div>
             </details>
+
             <details className="sort__details">
               <summary className="sort__summary">
                 <span className="sort__heading">PRICE</span>
@@ -261,78 +358,16 @@ function Catalog() {
         </div>
       </div>
       <div className="products center">
-        <Product
-          img={product1}
-          title="ELLERY X M'O CAPSULE"
-          description="Known for her sculptural takes on traditional tailoring,
-                Australian arbiter of cool Kym Ellery teams up with Moda
-                Operandi."
-          price="32.00"
-        />
-        <Product
-          img={product1}
-          title="ELLERY X M'O CAPSULE"
-          description="Known for her sculptural takes on traditional tailoring,
-                Australian arbiter of cool Kym Ellery teams up with Moda
-                Operandi."
-          price="32.00"
-        />
-        <Product
-          img={product1}
-          title="ELLERY X M'O CAPSULE"
-          description="Known for her sculptural takes on traditional tailoring,
-                Australian arbiter of cool Kym Ellery teams up with Moda
-                Operandi."
-          price="32.00"
-        />
-        <Product
-          img={product1}
-          title="ELLERY X M'O CAPSULE"
-          description="Known for her sculptural takes on traditional tailoring,
-                Australian arbiter of cool Kym Ellery teams up with Moda
-                Operandi."
-          price="32.00"
-        />
-        <Product
-          img={product2}
-          title="ELLERY X M'O CAPSULE"
-          description="Known for her sculptural takes on traditional tailoring,
-                Australian arbiter of cool Kym Ellery teams up with Moda
-                Operandi."
-          price="30.00"
-        />
-        <Product
-          img={product3}
-          title="ELLERY X M'O CAPSULE"
-          description="Known for her sculptural takes on traditional tailoring,
-                Australian arbiter of cool Kym Ellery teams up with Moda
-                Operandi."
-          price="15.00"
-        />
-        <Product
-          img={product4}
-          title="ELLERY X M'O CAPSULE"
-          description="Known for her sculptural takes on traditional tailoring,
-                Australian arbiter of cool Kym Ellery teams up with Moda
-                Operandi."
-          price="12.00"
-        />
-        <Product
-          img={product5}
-          title="ELLERY X M'O CAPSULE"
-          description="Known for her sculptural takes on traditional tailoring,
-                Australian arbiter of cool Kym Ellery teams up with Moda
-                Operandi."
-          price="67.00"
-        />
-        <Product
-          img={product6}
-          title="ELLERY X M'O CAPSULE"
-          description="Known for her sculptural takes on traditional tailoring,
-                Australian arbiter of cool Kym Ellery teams up with Moda
-                Operandi."
-          price="52.00"
-        />
+        {filteredProducts.map((item, index) => (
+          <Product
+            key={index}
+            img={item.img}
+            title={item.title}
+            description={item.description}
+            price={item.price}
+            size={item.size}
+          />
+        ))}
       </div>
       <div className="slider_container">
         <div className="slider">

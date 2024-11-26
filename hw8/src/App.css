@@ -146,6 +146,7 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 16px;
+  margin-bottom: 6px;
 }
 .catalog_of_products .filter_and_setting_sort .sort__heading {
   color: rgb(111, 110, 110);
@@ -164,6 +165,7 @@
   position: absolute;
   z-index: 1;
   top: 20px;
+  width: 40px;
 }
 
 .products {

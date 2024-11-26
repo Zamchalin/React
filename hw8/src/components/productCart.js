@@ -19,7 +19,7 @@ function ProductCart(props) {
             <input
               className="cart__product__quantity"
               type="number"
-              value="2"
+              value="1"
             />
           </p>
         </div>
